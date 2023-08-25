@@ -18,6 +18,7 @@ import Container from "@/formElements/Container";
 export default {
   name: 'FormBuilder',
   props: ['parsedInput', 'signal'],
+  emits: ['resultEvent'],
   data: () => ({
      formValues: {},
   }),
@@ -48,7 +49,7 @@ export default {
     },
     name() {
       return this.signal;
-    }
+    },
   },
   methods: {
     updateFormValues(event) {
@@ -75,7 +76,7 @@ export default {
     //при наличии которого мы отправляет информацию из формы
     name(n) {
       if (n) {
-        console.log(JSON.parse(JSON.stringify(this.formValues)));
+        this.$emit('resultEvent', JSON.stringify(this.formValues));
       }
     },
   },

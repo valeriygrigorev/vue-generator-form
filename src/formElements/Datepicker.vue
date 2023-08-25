@@ -12,14 +12,14 @@ export default {
     inputValue: '',
   }),
   mounted() {
-    this.inputValue = this.formatDate(this.$props.value);
+    this.inputValue = this.$props.value;
   },
   computed: {
     inputName() {
       return this.$props.code;
     },
     dataValue() {
-      return this.formatDate(this.inputValue, true);
+      return this.formatDate(this.inputValue);
     }
   },
   methods: {
@@ -31,9 +31,7 @@ export default {
             month = date.getMonth() + 1,
             year = date.getFullYear();
 
-      return reformat
-          ? `${year}-${month < 10 ? "0" + month : month}-${day < 10 ? "0" + day : day}`
-          : `${day < 10 ? "0" + day : day}.${month < 10 ? "0" + month : month}.${year}`;
+      return `${year}-${month < 10 ? "0" + month : month}-${day < 10 ? "0" + day : day}`
     },
   },
 }

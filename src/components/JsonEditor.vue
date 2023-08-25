@@ -1,10 +1,11 @@
 <template>
   <div>
-    <textarea :value="input" @input="update" class="editor"></textarea>
-    <button class="button" @click="showModal = true" :disabled = "!input">Сгенерировать форму</button>
+    <textarea :value="input" @input="update" class="json_editor"></textarea>
+    <button class="json_button" @click="showModal = true" :disabled = "!input">Сгенерировать форму</button>
+    <div class="json_result">{{result}}</div>
     <ModalWindow v-if="showModal" @close="onClosing()">
       <template v-slot = "{ signal }">
-        <FormBuilder :parsedInput="parsedInput" :signal="signal">
+        <FormBuilder :parsedInput="parsedInput" :signal="signal" @result-event="handleResultEvent">
         </FormBuilder>
       </template>
     </ModalWindow>
@@ -21,6 +22,7 @@ export default {
   data: () => ({
     input: '',
     showModal: false,
+    result: '',
   }),
   computed: {
     parsedInput() {
@@ -39,6 +41,9 @@ export default {
         this.showModal = false;
       })
     },
+    handleResultEvent(data) {
+      this.result = JSON.parse(data);
+    }
   },
   components: {
     ModalWindow,
@@ -48,14 +53,14 @@ export default {
 </script>
 
 <style>
-.editor {
+.json_editor {
   min-width: 500px;
   min-height: 600px;
   outline: none;
   margin-bottom: 16px;
 }
 
-.button {
+.json_button {
   background-color: #4CAF50;
   border: none;
   color: white;
@@ -65,5 +70,9 @@ export default {
   display: block;
   margin: auto;
   font-size: 16px;
+}
+
+.json_result {
+  margin: 30px auto;
 }
 </style>
