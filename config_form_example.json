@@ -1,0 +1,63 @@
+[
+  {
+    "type": "container",
+    "code": "k1",
+    "parent": null
+  },
+  {
+    "type": "input",
+    "code": "c1",
+    "parent": "k1",
+    "value": null
+  },
+  {
+    "type": "container",
+    "code": "k2",
+    "parent": "k1"
+  },
+  {
+    "type": "input",
+    "code": "c4",
+    "parent": "k2",
+    "value": "тест"
+  },
+  {
+    "type": "container",
+    "code": "k3",
+    "parent": "k2"
+  },
+  {
+    "type": "input",
+    "code": "c5",
+    "parent": "k3",
+    "value": "тест2"
+  },
+  {
+    "type": "input",
+    "code": "c6",
+    "parent": "k1",
+    "value": "тест3"
+  },
+  {
+    "type": "list",
+    "code": "с7",
+    "parent": "k1",
+    "listdata": [
+      {
+        "key": 1,
+        "value": "мужской"
+      },
+      {
+        "key": 2,
+        "value": "женский"
+      }
+    ],
+    "value": 2
+  },
+  {
+    "type": "datepicker",
+    "code": "c8",
+    "parent": "k1",
+    "value": "2020-01-01"
+  }
+]

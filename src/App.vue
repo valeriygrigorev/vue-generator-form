@@ -1,15 +1,16 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <JsonEditor>
+    </JsonEditor>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import JsonEditor from '@/components/JsonEditor';
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    JsonEditor,
   }
 }
 </script>
@@ -22,5 +23,10 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+* {
+  border-width: 1px;
+  border-radius: 0;
 }
 </style>
